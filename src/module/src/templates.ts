@@ -20,7 +20,7 @@ export async function getAssetsDefaultStorageTemplate(assetsStorage: Storage) {
     '',
     ...keys.map((key) => {
       const value = mediaItemFieldsFromKey(key)
-      return `storage.setItem('${value.id}', ${JSON.stringify(value)})`
+      return `storage.setItem(${JSON.stringify(value.id)}, ${JSON.stringify(value)})`
     }),
     '',
     'export const publicAssetsStorage = storage',

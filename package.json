@@ -1,11 +1,11 @@
 {
-  "name": "nuxt-studio",
-  "version": "1.8.2",
-  "description": "Nuxt Studio for Nuxt Content",
+  "name": "@altafusion/nuxt-studio",
+  "version": "1.8.2-altafusion.1",
+  "description": "Nuxt Studio for Nuxt Content, with the host @nuxtjs/i18n locale fix (fork of nuxt-content/nuxt-studio)",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nuxt-content/nuxt-studio.git"
+    "url": "git+https://github.com/altafusion/nuxt-studio.git"
   },
   "license": "MIT",
   "type": "module",
@@ -39,14 +39,14 @@
     "dev:prepare": "nuxt-module-build build --stub src/module && nuxt-module-build prepare src/module && nuxi prepare playground/docus && nuxi prepare docs",
     "build:docs": "pnpm prepack && nuxi build docs",
     "build:dev": "nuxi build playground/docus",
-    "release": "release-it",
     "lint": "eslint .",
     "typecheck": "nuxt typecheck && vue-tsc -p src/app/tsconfig.app.json",
     "verify": "pnpm run dev:prepare && pnpm run lint && pnpm run prepack && pnpm run typecheck && pnpm run test",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && cd playground/docus && vue-tsc --noEmit",
-    "clean": "rm -rf dist .nuxt .output node_modules docs/node_modules docs/.output docs/.data docs/.nuxt playground/docus/node_modules playground/docus/.output playground/docus/.data playground/docus/.nuxt playground/minimal/node_modules playground/minimal/.output playground/minimal/.data playground/minimal/.nuxt playground/minimal-i18n/node_modules playground/minimal-i18n/.output playground/minimal-i18n/.data playground/minimal-i18n/.nuxt pnpm-lock.yaml"
+    "clean": "rm -rf dist .nuxt .output node_modules docs/node_modules docs/.output docs/.data docs/.nuxt playground/docus/node_modules playground/docus/.output playground/docus/.data playground/docus/.nuxt playground/minimal/node_modules playground/minimal/.output playground/minimal/.data playground/minimal/.nuxt playground/minimal-i18n/node_modules playground/minimal-i18n/.output playground/minimal-i18n/.data playground/minimal-i18n/.nuxt pnpm-lock.yaml",
+    "release": "release-it"
   },
   "optionalDependencies": {
     "ipx": "^3.1.3"
@@ -114,5 +114,8 @@
     "cms",
     "markdown",
     "mdc"
-  ]
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

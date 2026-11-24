@@ -1,0 +1,41 @@
+name: Publish
+
+# Publishes @altafusion/nuxt-studio to npm with trusted publishing (OIDC, no token) and provenance.
+# Run it from the Actions tab, or push a tag named altafusion-v<version>.
+on:
+  push:
+    tags:
+      - 'altafusion-v*'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Prepare
+        run: pnpm run dev:prepare
+
+      - name: Build
+        run: pnpm run prepack
+
+      - name: Test
+        run: pnpm run test
+
+      - name: Publish
+        run: npm publish --provenance --access public

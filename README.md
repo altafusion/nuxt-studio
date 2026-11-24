@@ -1,5 +1,10 @@
 # Nuxt Studio
 
+> **Fork notice.** This is `@altafusion/nuxt-studio`, a fork of [nuxt-content/nuxt-studio](https://github.com/nuxt-content/nuxt-studio)
+> at v1.8.2 plus the host `@nuxtjs/i18n` locale fix from [PR #501](https://github.com/nuxt-content/nuxt-studio/pull/501) and a
+> fix for media ids that contain a quote. It exists only until upstream ships the fix; then switch back to `nuxt-studio`.
+> Use it under the original name with `"nuxt-studio": "npm:@altafusion/nuxt-studio@1.8.2-altafusion.1"`.
+
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
 [![License][license-src]][license-href]

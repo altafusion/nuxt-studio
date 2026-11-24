@@ -49,6 +49,3 @@ jobs:
 
       - name: Test
         run: pnpm run test
-
-      - name: Publish
-        run: pnpx pkg-pr-new publish --no-template --pnpm
